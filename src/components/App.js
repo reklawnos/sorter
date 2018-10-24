@@ -43,6 +43,9 @@ class App extends Component {
             ))}
           </div>
         }
+        <div className="info">
+          More info on <a href="https://github.com/reklawnos/sorter">GitHub</a>
+        </div>
       </div>
     );
   }

@@ -57,6 +57,12 @@ button {
   width: 100%;
   min-height: 300px;
 }
+
 .result-list {
   padding: 10px;
+}
+
+.info {
+  margin-top: 100px;
+  text-align: center;
 }
