@@ -25,7 +25,7 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "homepage": "https://reklawnos.github.io/sorter",
+  "homepage": "https://reklawnos.github.io/sorter/",
   "devDependencies": {
     "gh-pages": "^2.0.1"
   }
