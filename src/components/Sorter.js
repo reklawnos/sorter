@@ -40,9 +40,11 @@ async function merge(a, b, compare) {
 
 function OptionButton({ onPress, children }) {
   return (
-    <button onClick={onPress} className="option-button">
-      {children}
-    </button>
+    <div className="option-button--container">
+      <button onClick={onPress} className="option-button--button">
+        {children}
+      </button>
+    </div>
   );
 }
 
@@ -60,8 +62,27 @@ class Sorter extends Component {
       options,
       onRankingComplete,
     } = this.props;
+    window.addEventListener('keydown', this.onKeyPress);
     mergeSort(options, this.compare).then(onRankingComplete);
   }
+
+  componentWillUnmount() {
+    window.removeEventListener('keydown', this.onKeyPress);
+  }
+
+  onKeyPress = (e) => {
+    const { currentComparison } = this.state;
+
+    switch (e.key) {
+      case 'ArrowLeft':
+        this.completeComparison(currentComparison.optionA);
+        break;
+      case 'ArrowRight':
+        this.completeComparison(currentComparison.optionB);
+        break;
+      default:
+    }
+  };
 
   compare = (a, b) => {
     return new Promise((resolve) => {
@@ -88,22 +109,18 @@ class Sorter extends Component {
 
   render() {
     const { currentComparison } = this.state;
-    return (
+    return currentComparison !== null && (
       <div>
-        {currentComparison !== null &&
-          <>
-            <OptionButton
-              onPress={() => this.completeComparison(currentComparison.optionA)}
-            >
-              {currentComparison.optionA}
-            </OptionButton>
-            <OptionButton
-              onPress={() => this.completeComparison(currentComparison.optionB)}
-            >
-              {currentComparison.optionB}
-            </OptionButton>
-          </>
-        }
+        <OptionButton
+          onPress={() => this.completeComparison(currentComparison.optionA)}
+        >
+          {currentComparison.optionA}
+        </OptionButton>
+        <OptionButton
+          onPress={() => this.completeComparison(currentComparison.optionB)}
+        >
+          {currentComparison.optionB}
+        </OptionButton>
       </div>
     );
   }

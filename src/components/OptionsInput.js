@@ -21,10 +21,16 @@ class OptionsInput extends Component {
     const { inputText } = this.state;
     return (
       <div>
-        <textarea value={inputText} onChange={this.onTextChanged} />
-        <button onClick={this.onSubmit}>
-          Start
-        </button>
+        <textarea
+          value={inputText}
+          onChange={this.onTextChanged}
+          className="options-input"
+        />
+        <div className="start-button-container">
+          <button onClick={this.onSubmit}>
+            Start
+          </button>
+        </div>
       </div>
     );
   }

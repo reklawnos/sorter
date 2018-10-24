@@ -3,54 +3,6 @@ import Sorter from './Sorter';
 import OptionsInput from './OptionsInput';
 import './App.css';
 
-/*
-const kpop = [
-  'Shinee',
-  'Seventeen',
-  'BTS',
-  'Red Velvet',
-  'Blackpink',
-  'Big Bang',
-  'Twice',
-  'Pentagon',
-  'NCT',
-  'EXO',
-  'G Friend',
-  'Sistar',
-  'Wonder Girls',
-  'Got 7',
-  '2 PM',
-  'Wanna One',
-  'IOI',
-];
-
-const numbers = [
-  10,
-  9,
-  8,
-  7,
-  6,
-  5,
-  4,
-  3,
-  2,
-  1,
-];
-
-
-const numbersAsc = [
-  1,
-  2,
-  3,
-  4,
-  5,
-  6,
-  7,
-  8,
-  9,
-];
-*/
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -82,11 +34,15 @@ class App extends Component {
             onRankingComplete={this.onRankingComplete}
           />
         }
-        {(result || []).map((result, i) => (
-          <div key={i}>
-            {result}
+        {result &&
+          <div className="result-list">
+            {result.map((result, i) => (
+              <div key={i}>
+                {result}
+              </div>
+            ))}
           </div>
-        ))}
+        }
       </div>
     );
   }

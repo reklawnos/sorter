@@ -1,5 +1,62 @@
-.option-button {
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: #f9f7ef;
+}
+button {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+
+  background: transparent;
+
+  /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
+
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
+
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+
+  /* Corrects inability to style clickable `input` types in iOS */
+  -webkit-appearance: none;
+
+
+  border: 1px solid black;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.options-input {
+  min-width: 100%;
+  min-height: 300px;
+  font-size: 16px;
+}
+
+.start-button-container {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.option-button--container {
   width: 50%;
-  height: 300px;
+  padding: 10px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.option-button--button {
   font-size: 48px;
+  width: 100%;
+  min-height: 300px;
+}
+.result-list {
+  padding: 10px;
 }
